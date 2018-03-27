@@ -17,6 +17,7 @@ def hello(bot, update):
 updater = Updater(TELEGRAM_TOKEN)
 
 updater.dispatcher.add_handler(CommandHandler('hello', hello))
+updater.dispatcher.add_handler(CommandHandler('xkcd', xkcd))
 
 updater.start_polling()
 updater.idle()
