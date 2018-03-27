@@ -6,7 +6,7 @@ if not TELEGRAM_TOKEN:
     sys.exit('Please set environment variable TELEGRAM_TOKEN')
 
 def xkcd(bot, update):
-    update.message.reply_text(
+    update.message.text(
         'This is when I post the latest XKCD comic')
 
 def hello(bot, update):
