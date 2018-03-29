@@ -4,15 +4,18 @@ import urllib.request, json
 
 with urllib.request.urlopen("https://xkcd.com/info.0.json") as url:
     data = json.loads(url.read().decode())
-
+    print(data['img'])
+    image = urllib.request.urlretrieve(data['img'], "xkcd.png")
 
 TELEGRAM_TOKEN = os.environ.get('TELEGRAM_TOKEN')
 if not TELEGRAM_TOKEN:
     sys.exit('Please set environment variable TELEGRAM_TOKEN')
 
 def xkcd(bot, update):
-    update.message.reply_text(
-        'This is when I post the latest XKCD comic'+data.img)
+    update.message.reply_image(        
+        image,
+        quote=False
+    )
 
 def hello(bot, update):
     update.message.reply_text(
